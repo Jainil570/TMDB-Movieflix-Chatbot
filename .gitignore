@@ -7,8 +7,14 @@ env/
 __pycache__/
 *.pyc
 
-# Data & Indexes
-data/
+# Large Source Data Files (Locally Generated)
+data/processed_movies.json
+
+# Local CSV data files (extracted automatically, no need to push)
+data/tmdb_5000_movies.csv
+data/tmdb_5000_credits.csv
+
+# Vector stores
 vector_store/
 
 # Jupyter Notebook Checkpoints

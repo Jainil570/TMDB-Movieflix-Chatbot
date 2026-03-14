@@ -41,7 +41,7 @@ with st.sidebar:
     st.markdown("Ask anything about the TMDB 5000 movies!")
     st.markdown("---")
     st.markdown("**Example Questions:**")
-    st.markdown("- Who directed Avatar?")
+    st.markdown("- Who directed Spider Man 3?")
     st.markdown("- What are some good sci-fi movies?")
     st.markdown("- Tell me about movies featuring Leonardo DiCaprio.")
     st.markdown("---")
@@ -58,10 +58,13 @@ st.title("🎬 Movie Knowledge Chatbot")
 # Initialize RAG Pipeline in session state to avoid reloading
 if 'rag' not in st.session_state:
     try:
-        with st.spinner("Loading knowledge base..."):
+        with st.spinner("Initializing knowledge base (this may take a few minutes on the first run)..."):
             rag = MovieRAG()
+            # This extracts data and builds the FAISS index if missing
+            rag.auto_setup()
+            
             if not rag.load_index():
-                st.error("Vector database not found! Please run `python rag_pipeline.py --ingest` first.")
+                st.error("Vector database initialization failed! Check terminal logs.")
                 st.stop()
             st.session_state.rag = rag
             # st.success("Database loaded successfully!") # Removing success message to keep UI clean like ChatGPT
