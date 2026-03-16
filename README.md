@@ -1,5 +1,5 @@
 # 🎬 Movie Knowledge Chatbot
-
+DEMO : https://screenrec.com/share/WMJqmn9LFE
 This is a RAG (Retrieval Augmented Generation) based chatbot built using the **TMDB 5000 Movie Dataset**. It answers user queries about movies relying *strictly* on the provided dataset. 
 
 This project uses:
